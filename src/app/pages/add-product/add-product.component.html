@@ -1,0 +1,36 @@
+<div class="container">
+  <h2>Add Product Form</h2>
+  <div *ngIf="isAdded" class="alert alert-success" role="alert">
+    Added the product successfully
+  </div>
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <mat-form-field appearance="fill">
+      <mat-label>Title</mat-label>
+      <input data-testid="titleControl" name="title" ngModel matInput />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Price</mat-label>
+      <input data-testid="priceControl" name="price" ngModel matInput />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Description</mat-label>
+      <input data-testid="descControl" name="description" ngModel matInput />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Image</mat-label>
+      <input data-testid="imageControl" name="image" ngModel matInput />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Select Category</mat-label>
+      <mat-select data-testid="categoryControl" name="category" ngModel>
+        <mat-option value="electronics">Electronics</mat-option>
+        <mat-option value="jewelery">Jewelery</mat-option>
+        <mat-option value="men's clothing">Men's clothing</mat-option>
+        <mat-option value="women's clothing">Women's clothin</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div class="submit-btn">
+      <button type="submit" mat-raised-button color="primary">Submit</button>
+    </div>
+  </form>
+</div>

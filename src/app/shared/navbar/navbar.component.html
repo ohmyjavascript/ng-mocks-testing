@@ -1,0 +1,12 @@
+<mat-toolbar>
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with menu icon"
+  >
+    <mat-icon>shopping_bag</mat-icon>
+  </button>
+  <span>Shoppy</span>
+  <span class="spacer"></span>
+  <app-navigation-list [count]="count$ | async"></app-navigation-list>
+</mat-toolbar>

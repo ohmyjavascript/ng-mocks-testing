@@ -1,0 +1,12 @@
+<ul class="list-unstyled">
+  <li class="media my-4">
+    <img [src]="item.image" class="media-img mr-3" [alt]="item.title" />
+    <div class="media-body">
+      <h4 class="mt-0 mb-1">{{ item.title }}</h4>
+      <p class="lead">
+        Category: {{ item.category }} / Price: {{ item.price }}
+      </p>
+      <p class="lead">Quantity: {{ item.quantity }}</p>
+    </div>
+  </li>
+</ul>

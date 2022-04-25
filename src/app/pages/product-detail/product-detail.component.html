@@ -1,0 +1,19 @@
+<div class="container mt-3">
+  <div *ngIf="productDetails$ | async as productDetails" class="card">
+    <div class="card-header">Product Details</div>
+    <img
+      [src]="productDetails.image"
+      class="card-img-top"
+      [alt]="productDetails.title"
+    />
+    <div class="card-body">
+      <h5 class="card-title">{{ productDetails.title }}</h5>
+      <p class="card-text">
+        {{ productDetails.category }}
+      </p>
+      <p class="card-text">
+        {{ productDetails.description }}
+      </p>
+    </div>
+  </div>
+</div>

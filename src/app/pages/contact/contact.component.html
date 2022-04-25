@@ -1,0 +1,17 @@
+<div class="container mt-5">
+  <mat-accordion>
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title> Contact Us </mat-panel-title>
+        <mat-panel-description>
+          Reach us via mail or phone
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <ul class="list-group">
+        <li class="list-group-item">Address: {{ details.address }}</li>
+        <li class="list-group-item">Office: {{ details.phone | phone }}</li>
+        <li class="list-group-item">Email: {{ details.email }}</li>
+      </ul>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

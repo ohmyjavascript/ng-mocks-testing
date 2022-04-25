@@ -1,0 +1,12 @@
+
+.container {
+  padding: 20px;
+  margin-top:50px;
+  text-align: center;
+}
+mat-form-field {
+  width: 70%;
+}
+.submit-btn {
+  text-align: center;
+}

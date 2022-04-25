@@ -1,0 +1,27 @@
+<div appHighlight>
+  <mat-card>
+    <img mat-card-image [src]="product.image" alt="card" />
+    <mat-card-content>
+      <p class="card-title">
+        {{ product.title }}
+      </p>
+      <p><strong>Price:</strong> {{ product.price }}</p>
+      <div>
+        <mat-chip-list aria-label="Category selection">
+          <mat-chip> {{ product.category }}</mat-chip>
+        </mat-chip-list>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <a
+        [routerLink]="['/product', product.id]"
+        routerLinkActive="router-link-active"
+        mat-raised-button
+        >More Details</a
+      >
+      <button (click)="addToCart(product)" mat-raised-button color="accent">
+        Add To Cart
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

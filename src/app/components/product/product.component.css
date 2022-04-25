@@ -1,0 +1,16 @@
+.mat-card-image {
+  height: 250px;
+  padding: 10px;
+}
+
+.card-title {
+  min-height: 80px;
+}
+
+mat-card {
+  margin-bottom: 30px;
+}
+
+mat-card-actions {
+  display: flex;
+}

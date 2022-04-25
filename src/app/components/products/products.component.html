@@ -1,0 +1,15 @@
+<div *ngIf="products$ | async as products; else spinner" class="container">
+  <div class="row">
+    <app-product
+      [product]="prod"
+      (onAddToCart)="handleAddToCart($event)"
+      *ngFor="let prod of products"
+      class="col-3"
+    ></app-product>
+  </div>
+</div>
+<ng-template #spinner>
+  <div class="spinner">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-template>
