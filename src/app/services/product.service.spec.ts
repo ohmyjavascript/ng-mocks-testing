@@ -1,21 +1,15 @@
 import { AppModule } from './../app.module';
-import { MockBuilder, MockRender } from 'ng-mocks';
+import {MockBuilder, MockRender, ngMocks} from 'ng-mocks';
 import { ProductService } from './product.service';
-import { HttpClientModule } from '@angular/common/http';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing'
 import { mockProducts, mockProduct } from '../mocks';
 import { EMPTY } from 'rxjs';
 describe('product Service', () => {
-  beforeEach(() => {
-    return MockBuilder(ProductService, AppModule).replace(
-      HttpClientModule,
-      HttpClientTestingModule
-    )
-  })
+  // HttpClientTestingModule should be simply added to tests
+  beforeEach(() => MockBuilder([ProductService, HttpClientTestingModule], AppModule))
   it('should test getAllProducts', () => {
-    const fixture = MockRender('');
-    const service: ProductService = fixture.debugElement.injector.get(ProductService);
-    const httpMock: HttpTestingController = fixture.debugElement.injector.get(HttpTestingController);
+    const service = MockRender(ProductService).point.componentInstance;
+    const httpMock = ngMocks.findInstance(HttpTestingController);
 
     let actual: any;
     service.getAllProducts().subscribe(value => actual = value);
@@ -28,9 +22,8 @@ describe('product Service', () => {
   })
 
   it('should test getProductById', () => {
-    const fixture = MockRender('');
-    const service: ProductService = fixture.debugElement.injector.get(ProductService);
-    const httpMock: HttpTestingController = fixture.debugElement.injector.get(HttpTestingController);
+    const service = MockRender(ProductService).point.componentInstance;
+    const httpMock = ngMocks.findInstance(HttpTestingController);
 
     let actual: any;
     service.getProductById('1').subscribe(value => actual = value);
@@ -43,9 +36,8 @@ describe('product Service', () => {
   })
 
   it('should test addProductToDB', () => {
-    const fixture = MockRender('');
-    const service: ProductService = fixture.debugElement.injector.get(ProductService);
-    const httpMock: HttpTestingController = fixture.debugElement.injector.get(HttpTestingController);
+    const service = MockRender(ProductService).point.componentInstance;
+    const httpMock = ngMocks.findInstance(HttpTestingController);
 
     let actual: any;
     service.addProductToDB(mockProduct).subscribe(value => actual = value);

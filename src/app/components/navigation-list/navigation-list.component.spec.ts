@@ -1,16 +1,11 @@
-import { MatIconModule } from '@angular/material/icon';
 import { NavigationListComponent } from './navigation-list.component';
 import { MockBuilder, MockRender, ngMocks } from 'ng-mocks';
-import { RouterLink } from '@angular/router';
-import { MatBadgeModule } from '@angular/material/badge';
+import {AppModule} from "../../app.module";
 
 describe('NavigationListComponent', () => {
 
   beforeEach(() => {
-    return MockBuilder(NavigationListComponent)
-      .mock(MatIconModule)
-      .mock(MatBadgeModule) // Tricky one, remove and see
-      .mock(RouterLink)
+    return MockBuilder(NavigationListComponent, AppModule)
   });
 
   it('should be defined', () => {
