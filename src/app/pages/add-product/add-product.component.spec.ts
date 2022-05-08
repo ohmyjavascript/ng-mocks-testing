@@ -48,7 +48,7 @@ describe('AddProductComponent', () => {
 
   it('should test onSubmit', () => {
     const fixture = MockRender(AddProductComponent);
-    const prodService = fixture.point.injector.get(ProductService);
+    const prodService = ngMocks.findInstance(ProductService);
     const spy = jest.spyOn(prodService, 'addProductToDB');
     const component = fixture.point.componentInstance;
     component.onSubmit(mockForm as any);

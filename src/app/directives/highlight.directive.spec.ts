@@ -33,7 +33,7 @@ describe('HighlightDirective', () => {
     ngMocks.trigger(el, 'mouseover');
     fixture.detectChanges();
     //console.log(ngMocks.formatHtml(fixture.debugElement))
-    expect(ngMocks.formatHtml(fixture.debugElement)).toContain('box_shadow');
+    expect(ngMocks.formatHtml(fixture)).toContain('box_shadow');
   })
 
 })

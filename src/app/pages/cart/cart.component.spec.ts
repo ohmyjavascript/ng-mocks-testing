@@ -1,12 +1,11 @@
 import { mockShoppingCart } from './../../mocks/index';
 import { ShoppingCartService } from '../../services/shopping-cart.service';
-import { ShoppingCartComponent } from './../../components/shopping-cart/shopping-cart.component';
 import { CartComponent } from './cart.component';
 import { MockBuilder, MockRender } from 'ng-mocks';
+import {AppModule} from "../../app.module";
 describe('Cart Component', () => {
   beforeEach(() => {
-    return MockBuilder(CartComponent)
-      .mock(ShoppingCartComponent)
+    return MockBuilder(CartComponent, AppModule)
       .mock(ShoppingCartService, {
         getAllCartItems: () => [...mockShoppingCart] as any
       });

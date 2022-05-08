@@ -1,18 +1,15 @@
 import { mockProduct, mockProducts } from './../../mocks/index';
-import { MatProgressSpinner } from '@angular/material/progress-spinner';
 import { ShoppingCartService } from '../../services/shopping-cart.service';
-import { ProductComponent } from './../product/product.component';
 import { ProductsComponent } from './products.component';
-import { MockBuilder, MockRender } from "ng-mocks";
+import {MockBuilder, MockRender, ngMocks} from "ng-mocks";
 import { ProductService } from '../../services/product.service';
 import { of, EMPTY } from 'rxjs';
 import { cold } from 'jest-marbles';
+import {AppModule} from "../../app.module";
 
 describe('ProductsComponent', () => {
 
-  beforeEach(() => MockBuilder(ProductsComponent)
-    .mock(ProductComponent)
-    .mock(MatProgressSpinner)
+  beforeEach(() => MockBuilder(ProductsComponent, AppModule)
     .mock(ProductService, {
       getAllProducts: () => of(mockProducts)
     })
@@ -37,7 +34,7 @@ describe('ProductsComponent', () => {
 
     const fixture = MockRender(ProductsComponent);
     const component = fixture.componentInstance;
-    const shopService = fixture.point.injector.get(ShoppingCartService);
+    const shopService = ngMocks.findInstance(ShoppingCartService);
     const spy = jest.spyOn(shopService, 'addToCart');
     component.handleAddToCart(mockProduct);
     expect(spy).toHaveBeenCalled();

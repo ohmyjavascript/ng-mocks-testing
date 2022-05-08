@@ -1,19 +1,13 @@
-import { Product } from './../../models/product.model';
-import { RouterLink, RouterModule } from '@angular/router';
-import { MatChipsModule } from '@angular/material/chips';
-import { MatCardModule } from '@angular/material/card';
 import { MockBuilder, MockRender, ngMocks } from 'ng-mocks';
 import { ProductComponent } from './product.component';
 import { mockProduct } from '../../mocks';
+import {AppModule} from "../../app.module";
 
 
 describe('ProductComponent', () => {
 
   beforeEach(() => {
-    return MockBuilder(ProductComponent)
-      .mock(MatCardModule)
-      .mock(MatChipsModule)
-      .mock(RouterModule)
+    return MockBuilder(ProductComponent, AppModule)
   });
 
   it('should be defined', () => {
