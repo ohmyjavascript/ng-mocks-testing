@@ -5,7 +5,6 @@ import { Observable } from 'rxjs';
 import { ProductService } from './../../services/product.service';
 import { Component, OnInit } from '@angular/core';
 
-
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
